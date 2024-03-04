@@ -23,14 +23,11 @@ except ModuleNotFoundError:  # pragma: no cover
 UlidType = Union[str, bytes, int]
 
 
-@dataclass
-class ULID(_repr.Representation):
+class ULID(_ULID):
     """
     A wrapper around [python-ulid](https://pypi.org/project/python-ulid/) package, which
     is a validate by the [ULID-spec](https://github.com/ulid/spec#implementations-in-other-languages).
     """
-
-    ulid: _ULID
 
     @classmethod
     def __get_pydantic_core_schema__(cls, source: type[Any], handler: GetCoreSchemaHandler) -> core_schema.CoreSchema:
